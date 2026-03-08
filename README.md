@@ -4,6 +4,17 @@
 
 We are currently focusing only on the **wall** task from DINO-WM.
 
+## Suggested setup steps
+
+1. Clone this repository.
+2. Set up a Linux environment (WSL Ubuntu is recommended on Windows).
+3. Install Miniconda.
+4. Create and activate the `dino_wm` conda environment.
+5. Clone the original DINO-WM repository into:
+   `team9-model-code/external/dino_wm`
+6. Start from:
+   `notebooks/wall_code_walkthrough.ipynb`
+7. 
 ## Project structure
 
 This repository is our main project workspace.
