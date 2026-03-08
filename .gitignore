@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Jupyter
+.ipynb_checkpoints/
+.ipynb_checkpoints
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+
+# Logs / temp
+*.log
+*.tmp
+
+# Local scratch
+env-test/
+
+# Data / checkpoints / generated outputs
+data/
+datasets/
+checkpoints/
+outputs/
+plan_outputs/
+artifacts/
+*.ckpt
+*.pt
+*.pth
+*.npz
+
+# Local env / secrets
+.env
+.venv
+
+# Ignore upstream DINO-WM code in the main project repo
+team9-model-code/external/dino_wm/
