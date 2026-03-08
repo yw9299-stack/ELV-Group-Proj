@@ -6,8 +6,6 @@ We are currently focusing only on the **wall** task from DINO-WM.
 
 ## Suggested setup steps
 
-## Suggested setup steps
-
 1. Clone this repository.
 2. Set up a Linux environment. WSL Ubuntu is recommended on Windows.
 3. Install Miniconda.
