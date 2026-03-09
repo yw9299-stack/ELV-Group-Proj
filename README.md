@@ -11,8 +11,13 @@ We are currently focusing only on the **wall** task from DINO-WM.
 3. Install Miniconda.
 4. Clone the original DINO-WM repository into:
    `team9-model-code/external/dino_wm`
-5. Enter `team9-model-code/external/dino_wm` and create the `dino_wm` conda environment.
-6. Start from:
+5. Enter `team9-model-code/external/dino_wm` and create or update the `dino_wm` conda environment using the repository's updated `environment.yaml`.
+6. Download and unpack the DINO-WM datasets.
+7. Set `DATASET_DIR` to the parent directory that contains `wall_single/`.
+8. Ensure MuJoCo 2.1 is installed under `~/.mujoco/mujoco210`.
+9. Export `LD_LIBRARY_PATH` so `mujoco_py` can find MuJoCo before starting Jupyter.
+10. Launch Jupyter from the same shell where the environment variables were exported.
+11. Start from:
    `notebooks/wall_code_walkthrough.ipynb`
 
 ## Project structure
