@@ -40,12 +40,19 @@ This repository is our main project workspace.
 
 ## Current status
 
-- WSL Ubuntu environment is set up
-- The `dino_wm` conda environment is working
-- `train.py --help` runs successfully in the DINO-WM environment
-- PyCharm interpreter is connected to the WSL `dino_wm` environment
-- The initial notebook scaffold has been created:
-  - `notebooks/wall_code_walkthrough.ipynb`
+- WSL Ubuntu environment is set up.
+- The `dino_wm` conda environment has been created or updated using the repository's `environment.yaml`.
+- `train.py --help` runs successfully in the DINO-WM environment.
+- PyCharm interpreter is connected to the WSL `dino_wm` environment.
+- The Wall walkthrough notebook has been validated through:
+  - Hydra config composition for `env=wall`
+  - Wall dataset loading and trajectory slicing
+  - model instantiation and single forward pass
+  - tensor shape tracing through the encoder, predictor, and decoder
+  - Wall environment preparation and short rollout
+- Running the notebook requires `DATASET_DIR` and MuJoCo-related `LD_LIBRARY_PATH` to be set before launching Jupyter.
+- The initial notebook scaffold is available at:
+  - `notebooks/wall_code_walkthrough.ipynb``
 
 ## External dependency
 
