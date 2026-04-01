@@ -1,72 +1,46 @@
 # Embodied Vision Group Project
 
+## Scope
+
+This repository is the shared workspace for our embodied vision project.
+
+It tracks the actual source code state we use for experiments, including modified code under `team9-model-code/external/`. Large runtime assets such as datasets, checkpoints, logs, and generated outputs are intentionally excluded from git.
+
 ## Current focus
 
-We are currently focusing only on the **wall** task from DINO-WM.
+- DINO-WM wall-task analysis and walkthroughs
+- C-JEPA PushT training
+- NYU HPC deployment and reproducibility
 
-## Suggested setup steps
+## Repository policy
 
-1. Clone this repository.
-2. Set up a Linux environment. WSL Ubuntu is recommended on Windows.
-3. Install Miniconda.
-4. Clone the original DINO-WM repository into:
-   `team9-model-code/external/dino_wm`
-5. Enter `team9-model-code/external/dino_wm` and create or update the `dino_wm` conda environment using the repository's updated `environment.yaml`.
-6. Download and unpack the DINO-WM datasets.
-7. Set `DATASET_DIR` to the parent directory that contains `wall_single/`.
-8. Ensure MuJoCo 2.1 is installed under `~/.mujoco/mujoco210`.
-9. Export `LD_LIBRARY_PATH` so `mujoco_py` can find MuJoCo before starting Jupyter.
-10. Launch Jupyter from the same shell where the environment variables were exported.
-11. Start from:
-   `notebooks/wall_code_walkthrough.ipynb`
+- Keep code that affects experiments under version control, including modified external code.
+- Do not commit datasets, pretrained weights, checkpoints, logs, or generated outputs.
+- Use external storage such as `/scratch` on HPC for large runtime assets.
+- If an external model is modified locally and required for reproduction, that modified code should live in this repository or in a clearly pinned fork.
+
+Related docs:
+
+- [CJEPA PushT Setup](/D:/Embodied Vision group proj/docs/cjepa_pusht_setup.md)
+- [CJEPA PushT Setup ZH](/D:/Embodied Vision group proj/docs/cjepa_pusht_setup_zh.md)
 
 ## Project structure
 
-This repository is our main project workspace.
-
+- `docs/`
+  - setup notes and reproducibility docs
 - `notebooks/`
   - code walkthroughs
   - debugging notebooks
   - analysis notes
 - `scripts/`
-  - helper scripts for running experiments or sanity checks
+  - helper scripts for local runs and HPC runs
 - `team9-model-code/external/`
-  - external reference code
-  - the original DINO-WM repository should be placed here
+  - vendored upstream code that we use or modify
+  - keep code, exclude datasets and outputs
 - `team9-model-code/src/`
   - our own project-specific model and experiment code
-- `README.md`
-  - workspace overview and collaboration notes
 
-## Current status
+## Notes
 
-- WSL Ubuntu environment is set up.
-- The `dino_wm` conda environment has been created or updated using the repository's `environment.yaml`.
-- `train.py --help` runs successfully in the DINO-WM environment.
-- PyCharm interpreter is connected to the WSL `dino_wm` environment.
-- The Wall walkthrough notebook has been validated through:
-  - Hydra config composition for `env=wall`
-  - Wall dataset loading and trajectory slicing
-  - model instantiation and single forward pass
-  - tensor shape tracing through the encoder, predictor, and decoder
-  - Wall environment preparation and short rollout
-- Running the notebook requires `DATASET_DIR` and MuJoCo-related `LD_LIBRARY_PATH` to be set before launching Jupyter.
-- The initial notebook scaffold is available at:
-  - `notebooks/wall_code_walkthrough.ipynb``
-
-## External dependency
-
-The original DINO-WM repository should be cloned separately into:
-
-`team9-model-code/external/dino_wm`
-
-This repository is intended to store our own workspace materials, not to mirror the full upstream DINO-WM repository.
-
-## Collaboration note
-
-The intended division is:
-
-- use `team9-model-code/external/` for upstream reference code
-- use `team9-model-code/src/` for our own extensions and experimental code
-- use `notebooks/` for structured code reading and experiment notes
-- use `scripts/` for reproducible entry points when needed
+- Local and HPC workflows should use the same tracked code state.
+- If a result depends on a local modification to an external model, that modification should not live only on one machine.

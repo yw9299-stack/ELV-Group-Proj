@@ -31,10 +31,42 @@ artifacts/
 *.pt
 *.pth
 *.npz
+*.tar
+*.tar.gz
+*.tar.zst
+*.zip
+*.pkl
+*.safetensors
 
 # Local env / secrets
 .env
 .venv
 
-# Ignore upstream DINO-WM code in the main project repo
-team9-model-code/external/dino_wm/
+# External code policy:
+# Keep the actual vendored source code we modify.
+# Exclude datasets, checkpoints, logs, caches, and nested git metadata.
+team9-model-code/external/**/.git/
+team9-model-code/external/**/.github/
+team9-model-code/external/**/__pycache__/
+team9-model-code/external/**/.pytest_cache/
+team9-model-code/external/**/.mypy_cache/
+team9-model-code/external/**/.ipynb_checkpoints/
+team9-model-code/external/**/wandb/
+team9-model-code/external/**/lightning_logs/
+team9-model-code/external/**/outputs/
+team9-model-code/external/**/checkpoints/
+team9-model-code/external/**/checkpoint/
+team9-model-code/external/**/artifacts/
+team9-model-code/external/**/pretrained/
+team9-model-code/external/**/datasets/
+team9-model-code/external/**/data/
+team9-model-code/external/**/eval_results/
+team9-model-code/external/**/logs/
+team9-model-code/external/**/testfiles/
+
+# Keep code under external/, but still ignore known large local dataset roots.
+team9-model-code/external/dino_wm/datasets/
+team9-model-code/external/dino_wm/outputs/
+team9-model-code/external/cjepa-main/data/
+team9-model-code/external/cjepa-main/outputs/
+team9-model-code/external/cjepa-main/lightning_logs/
